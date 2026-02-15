@@ -2,7 +2,9 @@
 
 This repository contains the Argo CD Application manifest for the **PROD** environment of the hello-world essesseff™ app.  
 
-It is ***not necessary*** to be an essesseff™ subscriber in order to make use of the standardized pattern and automation offered in this and corresponding code and config repositories for configuring and managing your Go application to follow said standardized pattern of development, build, deployment and promotion through DEV -> QA -> STAGING -> PROD environments, although it should not surprise you that it will be much easier for essesseff™ subscribers to do so.
+It is ***not necessary*** to be an essesseff™ subscriber in order to make use of the standardized
+pattern and automation offered in this and corresponding code and config repositories for
+configuring and managing your FastAPI application to follow said standardized pattern of development, build, deployment and promotion through DEV -> QA -> STAGING -> PROD environments, although it should not surprise you that it will be much easier for essesseff™ subscribers to do so.
 
 *Please Note:*
 
@@ -33,7 +35,7 @@ hello-world-argocd-prod/
 ├── ghcr-credentials-secret.yaml.template          # GHCR credentials (set once per K8s cluster for organization) template
 ├── notifications-configmap.yaml.template          # Argo CD notifications configuration template
 ├── offboarding/
-│   └── offboard-essesseff-hello-world-flask-template.sh # script for offboarding the essesseff-hello-world-flask-template namespace from K8s
+│   └── offboard-essesseff-hello-world-fastapi-template.sh # script for offboarding the essesseff-hello-world-fastapi-template namespace from K8s
 │   └── offboard-hello-world-prod.sh                  # script for offboarding the hello-world prod app 1) from essesseff only or 2) from Argo CD and K8s entirely
 ├── setup-argocd-cluster.sh           # Argo CD K8s setup script 
 ├── setup-argocd.sh                   # Argo CD hello-world-prod essesseff app setup script 
@@ -60,7 +62,7 @@ hello-world-argocd-prod/
 
 1. **Git Clone This Repository**:
    ```bash
-   git clone git@github.com:essesseff-hello-world-flask-template/hello-world-argocd-prod.git
+   git clone git@github.com:essesseff-hello-world-fastapi-template/hello-world-argocd-prod.git
    ```
    
 2. **Configure Environment Variables in .env File**:
@@ -122,7 +124,7 @@ hello-world-argocd-prod/
 
 6. **Access the Deployed Application**:
    ```bash
-   kubectl port-forward service/hello-world-prod 8081:80 -n essesseff-hello-world-flask-template
+   kubectl port-forward service/hello-world-prod 8081:80 -n essesseff-hello-world-fastapi-template
    # Access: http://localhost:8081
    ```
 ### How to Offboard hello-world-prod Deployment from Argo CD and K8s
@@ -134,13 +136,13 @@ hello-world-argocd-prod/
    ./offboard-hello-world-prod.sh
    ```
 
-### How to Offboard essesseff-hello-world-flask-template K8s Namespace and All of its Resources
+### How to Offboard essesseff-hello-world-fastapi-template K8s Namespace and All of its Resources
 
 1. **Execute the offboarding script**:
    ```bash
    cd offboarding
-   chmod 744 offboard-essesseff-hello-world-flask-template.sh
-   ./offboard-essesseff-hello-world-flask-template.sh
+   chmod 744 offboard-essesseff-hello-world-fastapi-template.sh
+   ./offboard-essesseff-hello-world-fastapi-template.sh
    ```
 
 ## Application Details
@@ -148,7 +150,7 @@ hello-world-argocd-prod/
 - **Name**: `hello-world-prod`
 - **Namespace**: `argocd`
 - **Source Repository**: `hello-world-config-prod`
-- **Destination Namespace**: `essesseff-hello-world-flask-template`
+- **Destination Namespace**: `essesseff-hello-world-fastapi-template`
 - **Sync Policy**: Automated with prune and self-heal enabled
 
 ## Deployment Process
@@ -167,9 +169,9 @@ hello-world-argocd-prod/
 
 ## Repository URLs
 
-- **Source**: `https://github.com/essesseff-hello-world-flask-template/hello-world`
-- **Config PROD**: `https://github.com/essesseff-hello-world-flask-template/hello-world-config-prod`
-- **Argo CD PROD**: `https://github.com/essesseff-hello-world-flask-template/hello-world-argocd-prod` (this repo)
+- **Source**: `https://github.com/essesseff-hello-world-fastapi-template/hello-world`
+- **Config PROD**: `https://github.com/essesseff-hello-world-fastapi-template/hello-world-config-prod`
+- **Argo CD PROD**: `https://github.com/essesseff-hello-world-fastapi-template/hello-world-argocd-prod` (this repo)
 
 ## essesseff Integration
 
